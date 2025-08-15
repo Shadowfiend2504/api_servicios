@@ -18,7 +18,7 @@
     <div class="bg-white rounded-2xl shadow p-8">
       <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Concepto y Diseño de un Servicio Digital</h1>
       <p class="mt-2 text-lg">Caso: <span class="font-semibold">Bookr Salud</span> — API de reservas para servicios de salud</p>
-      <p class="mt-1 text-sm text-slate-500">Actividad: Definir, modelar y comparar un servicio digital. Duración de exposición: ~15 minutos.</p>
+      <p class="mt-1 text-sm text-slate-500">Actividad: Definir, modelar y comparar un servicio digital. </p>
       <div class="mt-4 flex flex-wrap gap-2 text-sm">
         <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full">Intangibilidad</span>
         <span class="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full">Inseparabilidad</span>
@@ -50,7 +50,7 @@
           <ul class="list-disc pl-5 space-y-1">
             <li><span class="font-medium">Pacientes</span>: buscan y reservan cita por especialidad, ubicación o modalidad.</li>
             <li><span class="font-medium">Prestadores</span> (clínicas/consultorios): gestionan horarios, cupos y políticas de cancelación.</li>
-            <li><span class="font-medium">Integradores</span> (apps de terceros): consumen la API para embebeder reservas.</li>
+            <li><span class="font-medium">Integradores</span> (apps de terceros): Se conecta tu sistema a otras plataformas para que las reservas de otras apps se puedan realizar desde Bookr salud también.</li>
   <header class="max-w-5xl mx-auto px-6 py-10">
     <div class="bg-gradient-to-r from-blue-500 via-emerald-400 to-violet-500 rounded-2xl shadow p-8 text-white">
       <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Bookr Salud</h1>
@@ -68,8 +68,9 @@
   <main class="max-w-5xl mx-auto px-6 pb-16">
     <section id="contexto" class="rounded-2xl shadow p-8 bg-blue-50 border-l-8 border-blue-500 mb-8">
       <h2 class="text-2xl font-bold text-blue-700 mb-2">Contexto & problema</h2>
-      <p class="text-lg">Tiempos de espera, reprogramaciones y canales fragmentados dificultan la gestión de citas médicas.</p>
-      <span class="block mt-2 text-xs text-blue-700">Duración: 2 min</span>
+      <p class="text-lg">Los sistemas de salud actual aún no han innovado y siguen presentando grandes problemas como largos tiempos de espera, confusión por agendas poco claras y múltiples canales de comunicación lo cual genera pérdida de tiempo, frustración y, en ocasiones, reprogramaciones innecesarias.
+
+</p>
     </section>
     <section id="solucion" class="rounded-2xl shadow p-8 bg-emerald-50 border-l-8 border-emerald-500 mb-8">
       <h2 class="text-2xl font-bold text-emerald-700 mb-2">Solución: Bookr Salud</h2>
@@ -79,18 +80,16 @@
         <li>Prestadores: gestionan horarios y cupos.</li>
         <li>Integradores: apps de terceros usan la API.</li>
       </ul>
-      <span class="block mt-2 text-xs text-emerald-700">Duración: 3 min</span>
     </section>
     <section id="caracteristicas" class="rounded-2xl shadow p-8 bg-amber-50 border-l-8 border-amber-500 mb-8">
       <h2 class="text-2xl font-bold text-amber-700 mb-2">Características del servicio</h2>
       <ul class="list-disc pl-5 text-base">
-        <li>Intangibilidad: acceso digital, no físico.</li>
-        <li>Inseparabilidad: prestación en tiempo real.</li>
-        <li>Variabilidad: depende de red y carga.</li>
-        <li>Perecibilidad: cupos caducan si no se usan.</li>
-        <li>Ausencia de propiedad: derecho de uso, no propiedad.</li>
+        <li>Intangibilidad: El servicio no es un producto físico de forma que se accede y utiliza de forma digital a través de la plataforma o la API.</li>
+        <li>Inseparabilidad: En el momento en que el usuario interactúa con la plataforma la reserva y la confirmación se generan en tiempo real lo cual indica que la producción y consumo suceden al mismo tiempo.</li>
+        <li>Variabilidad: La experiencia del usuario puede variar en la velocidad de la red, el dispositivo usado o la carga del sistema.</li>
+        <li>Perecibilidad: Los cupos disponibles para citas no se pueden almacenar para su uso futuro si no se reservan. Una hora libre que no se agenda se pierde.</li>
+        <li>Ausencia de propiedad: El usuario no adquiere la plataforma ni sus funciones, solo obtiene el derecho de usarla para realizar reservas y gestiones según las condiciones del servicio.</li>
       </ul>
-      <span class="block mt-2 text-xs text-amber-700">Duración: 4 min</span>
     </section>
     <section id="arquitectura" class="rounded-2xl shadow p-8 bg-rose-50 border-l-8 border-rose-500 mb-8">
       <h2 class="text-2xl font-bold text-rose-700 mb-2">Arquitectura & diagrama</h2>
@@ -133,7 +132,6 @@ flowchart LR
   ADM --> DB
         </pre>
       </div>
-      <span class="block mt-2 text-xs text-rose-700">Duración: 3 min</span>
     </section>
     <section id="comparativa" class="rounded-2xl shadow p-8 bg-violet-50 border-l-8 border-violet-500 mb-8">
       <h2 class="text-2xl font-bold text-violet-700 mb-2">Comparativa real</h2>
@@ -174,17 +172,18 @@ flowchart LR
           </tr>
         </tbody>
       </table>
-      <span class="block mt-2 text-xs text-violet-700">Duración: 2 min</span>
     </section>
-    <section id="cierre" class="rounded-2xl shadow p-8 bg-slate-100 border-l-8 border-slate-500 mb-8">
+    <section id="Que buscamos?" class="rounded-2xl shadow p-8 bg-slate-100 border-l-8 border-slate-500 mb-8">
       <h2 class="text-2xl font-bold text-slate-700 mb-2">Cierre</h2>
-      <p class="text-lg">Roadmap y métricas de éxito: integración con historias clínicas, mejora de SLOs, expansión a nuevos mercados.</p>
-      <span class="block mt-2 text-xs text-slate-700">Duración: 1 min</span>
-    </section>
-    <footer class="max-w-5xl mx-auto text-center text-xs text-slate-500 mt-10">
-      <p>© 2025 Equipo Bookr Salud — Documento educativo para actividad de "Concepto y Diseño de un Servicio Digital".</p>
-    </footer>
-      </ol>
+      <p class="text-lg">Con Bookr Salud buscamos una solución para la gestión de citas médicas con disponibilidad en tiempo real, conectando con los pacientes y ofreciendo una gran experiencia en un sistema eficiente y seguro.</p>
+      <b><p class="text-lg">Metricas de exito</p></b>
+      <ul class="list-disc pl-5 mt-2 text-base">
+        <li>Reducción en los tiempos para agendar una cita.</li>
+        <li>Disminuir la causa de reprogramación de citas generados por el actual sistema de salud..</li>
+        <li>Un incremento en el número de citas reservadas a través de la plataforma y la API.</li>
+        <li>Un nivel alto de satisfacción en los usuarios o pacientes.</li>
+        <li>Un nivel de disponibilidad del sistema cercano a las 24 horas del día.</li>
+      </ul>
     </section>
 
     <footer class="max-w-5xl mx-auto text-center text-xs text-slate-500 mt-10">
