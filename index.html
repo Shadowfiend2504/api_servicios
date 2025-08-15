@@ -51,78 +51,73 @@
             <li><span class="font-medium">Pacientes</span>: buscan y reservan cita por especialidad, ubicación o modalidad.</li>
             <li><span class="font-medium">Prestadores</span> (clínicas/consultorios): gestionan horarios, cupos y políticas de cancelación.</li>
             <li><span class="font-medium">Integradores</span> (apps de terceros): consumen la API para embebeder reservas.</li>
-          </ul>
-          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-            <p class="text-sm"><span class="font-semibold">Propuesta de valor:</span> reservas confiables en tiempo real, con recordatorios inteligentes y APIs fáciles de integrar.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- B. Aplicación de características del servicio -->
-    <section id="caracteristicas" class="bg-white rounded-2xl shadow p-8 mt-8">
-      <h2 class="text-2xl font-bold">B. Aplicación de las características de un servicio</h2>
-      <div class="mt-4 grid md:grid-cols-2 gap-6">
-        <div class="space-y-4">
-          <div>
+  <header class="max-w-5xl mx-auto px-6 py-10">
+    <div class="bg-gradient-to-r from-blue-500 via-emerald-400 to-violet-500 rounded-2xl shadow p-8 text-white">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Bookr Salud</h1>
+      <p class="mt-2 text-lg">Concepto y Diseño de un Servicio Digital</p>
+    </div>
+    <nav class="max-w-5xl mx-auto flex flex-wrap gap-3 justify-center mt-6 mb-8">
+      <a href="#contexto" class="px-4 py-2 rounded-full bg-blue-700 hover:bg-blue-800 text-white font-semibold">Contexto</a>
+      <a href="#solucion" class="px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold">Solución</a>
+      <a href="#caracteristicas" class="px-4 py-2 rounded-full bg-amber-500 hover:bg-amber-600 text-white font-semibold">Características</a>
+      <a href="#arquitectura" class="px-4 py-2 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-semibold">Arquitectura</a>
+      <a href="#comparativa" class="px-4 py-2 rounded-full bg-violet-600 hover:bg-violet-700 text-white font-semibold">Comparativa</a>
+      <a href="#cierre" class="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-900 text-white font-semibold">Cierre</a>
+    </nav>
+  </header>
             <h3 class="font-semibold">Intangibilidad</h3>
-            <p>El valor se entrega en forma de acceso y experiencia digital (API/UI), no hay transferencia de un bien físico.</p>
-          </div>
-          <div>
-            <h3 class="font-semibold">Inseparabilidad</h3>
-            <p>La prestación ocurre mientras el usuario interactúa: la confirmación de cupo y la generación de la cita se producen en el momento de uso.</p>
-          </div>
-          <div>
-            <h3 class="font-semibold">Variabilidad</h3>
-            <p>Depende de factores como la red del usuario o carga del sistema. Se gestiona con SLOs, escalado automático y pruebas A/B del flujo.</p>
-          </div>
-        </div>
-        <div class="space-y-4">
-          <div>
-            <h3 class="font-semibold">Perecibilidad</h3>
-            <p>Los cupos no usados a una hora específica se pierden. Se mitiga con <em>overbooking</em> controlado, lista de espera y recordatorios.</p>
-          </div>
-          <div>
-            <h3 class="font-semibold">Ausencia de propiedad</h3>
-            <p>El cliente obtiene derecho de uso (cuenta/API key), no propiedad del software. Términos de servicio y SLAs definen el uso.</p>
-          </div>
-          <div class="text-sm text-slate-500">
-            <p>Fuente conceptual: definiciones generales de servicio (intangibilidad, inseparabilidad, variabilidad, perecibilidad y ausencia de propiedad).</p>
-          </div>
-        </div>
-      </div>
+  <main class="max-w-5xl mx-auto px-6 pb-16">
+    <section id="contexto" class="rounded-2xl shadow p-8 bg-blue-50 border-l-8 border-blue-500 mb-8">
+      <h2 class="text-2xl font-bold text-blue-700 mb-2">Contexto & problema</h2>
+      <p class="text-lg">Tiempos de espera, reprogramaciones y canales fragmentados dificultan la gestión de citas médicas.</p>
+      <span class="block mt-2 text-xs text-blue-700">Duración: 2 min</span>
     </section>
-
-    <!-- C. Modelo de entrega y diagrama -->
-    <section id="modelo" class="bg-white rounded-2xl shadow p-8 mt-8">
-      <h2 class="text-2xl font-bold">C. Modelo de entrega</h2>
-      <p class="mt-2">Diagrama de alto nivel (cliente ↔ servidor, API, colas y almacenamiento). El flujo cubre búsqueda de disponibilidad, reserva y notificaciones.</p>
-      <div class="mt-6 p-4 bg-slate-50 border border-slate-200 rounded-xl overflow-x-auto">
+    <section id="solucion" class="rounded-2xl shadow p-8 bg-emerald-50 border-l-8 border-emerald-500 mb-8">
+      <h2 class="text-2xl font-bold text-emerald-700 mb-2">Solución: Bookr Salud</h2>
+      <p class="text-lg">Plataforma y API para reservas confiables en tiempo real, con recordatorios inteligentes y fácil integración.</p>
+      <ul class="list-disc pl-5 mt-2 text-base">
+        <li>Pacientes: buscan y reservan cita.</li>
+        <li>Prestadores: gestionan horarios y cupos.</li>
+        <li>Integradores: apps de terceros usan la API.</li>
+      </ul>
+      <span class="block mt-2 text-xs text-emerald-700">Duración: 3 min</span>
+    </section>
+    <section id="caracteristicas" class="rounded-2xl shadow p-8 bg-amber-50 border-l-8 border-amber-500 mb-8">
+      <h2 class="text-2xl font-bold text-amber-700 mb-2">Características del servicio</h2>
+      <ul class="list-disc pl-5 text-base">
+        <li>Intangibilidad: acceso digital, no físico.</li>
+        <li>Inseparabilidad: prestación en tiempo real.</li>
+        <li>Variabilidad: depende de red y carga.</li>
+        <li>Perecibilidad: cupos caducan si no se usan.</li>
+        <li>Ausencia de propiedad: derecho de uso, no propiedad.</li>
+      </ul>
+      <span class="block mt-2 text-xs text-amber-700">Duración: 4 min</span>
+    </section>
+    <section id="arquitectura" class="rounded-2xl shadow p-8 bg-rose-50 border-l-8 border-rose-500 mb-8">
+      <h2 class="text-2xl font-bold text-rose-700 mb-2">Arquitectura & diagrama</h2>
+      <p class="text-lg">Flujo: búsqueda de disponibilidad, reserva y notificaciones.</p>
+      <div class="mt-4 p-2 bg-white border border-rose-200 rounded-xl overflow-x-auto">
         <pre class="mermaid">
 flowchart LR
   subgraph Cliente
     UI[Web/App Paciente]
     Ext[Apps de terceros]
   end
-
   subgraph Borde
     GW[API Gateway]
     Auth[Auth / OAuth2]
   end
-
   subgraph Backend
     RSV[Servicio de Reservas]
     INV[Servicio de Inventario de Cupos]
     NTFY[Servicio de Notificaciones]
     ADM[Panel Admin]
   end
-
   subgraph Datos
     DB[(Base de Datos)]
     CACHE[(Cache)]
     Q[[Cola de Mensajes]]
   end
-
   UI -->|REST/GraphQL| GW
   Ext -->|API Key| GW
   GW --> Auth
@@ -139,137 +134,57 @@ flowchart LR
   ADM --> DB
         </pre>
       </div>
-
-      <div class="mt-6">
-        <h3 class="font-semibold">Flujo de interacción (resumen)</h3>
-        <ol class="list-decimal pl-5 space-y-2">
-          <li>El cliente consulta disponibilidad (fecha, médico, modalidad) vía UI o API.</li>
-          <li>El <span class="font-medium">API Gateway</span> valida autenticación y enruta al <span class="font-medium">Servicio de Reservas</span>.</li>
-          <li>Reservas consulta/actualiza inventario de cupos y confirma la cita en <span class="font-medium">DB</span> con bloqueo optimista.</li>
-          <li>Se emite un evento a <span class="font-medium">Cola</span> para disparar <span class="font-medium">Notificaciones</span> (email/SMS/push) y recordatorios.</li>
-          <li>Panel Admin gestiona agendas, políticas de cancelación y reportes.</li>
-        </ol>
-      </div>
+      <span class="block mt-2 text-xs text-rose-700">Duración: 3 min</span>
     </section>
-
-    <!-- D. Análisis de un servicio real -->
-    <section id="comparativa" class="bg-white rounded-2xl shadow p-8 mt-8">
-      <h2 class="text-2xl font-bold">D. Análisis de un servicio real</h2>
-      <p class="mt-2">Servicio elegido: <span class="font-semibold">Google Calendar API</span> (servicio de integración y gestión de calendarios).</p>
-      <div class="mt-4 grid md:grid-cols-2 gap-6">
-        <div>
-          <h3 class="font-semibold">¿Qué tipo de servicio es?</h3>
-          <p>API REST que expone operaciones para crear, listar y sincronizar eventos de calendario, con OAuth 2.0 y <em>webhooks</em> (watch/notifications).</p>
-          <h3 class="font-semibold mt-4">Aplicación de características teóricas</h3>
-          <ul class="list-disc pl-5 space-y-1">
-            <li><span class="font-medium">Intangible</span>: acceso a endpoints; no hay producto físico.</li>
-            <li><span class="font-medium">Inseparable</span>: la experiencia se produce en uso (latencia/estado del servidor).</li>
-            <li><span class="font-medium">Variable</span>: cuotas, límites, red del cliente influyen en la calidad.</li>
-            <li><span class="font-medium">Perecedero</span>: <em>tokens</em> expiran; notificaciones pierden valor si llegan tarde.</li>
-            <li><span class="font-medium">Sin propiedad</span>: los desarrolladores solo tienen licencia de uso según términos/SLAs.</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-semibold">Comparativa rápida</h3>
-          <div class="overflow-x-auto">
-            <table class="min-w-full text-sm border border-slate-200 rounded-xl overflow-hidden">
-              <thead class="bg-slate-100">
-                <tr>
-                  <th class="text-left p-3">Criterio</th>
-                  <th class="text-left p-3">Bookr Salud</th>
-                  <th class="text-left p-3">Google Calendar API</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-t">
-                  <td class="p-3">Dominio</td>
-                  <td class="p-3">Reservas de citas médicas</td>
-                  <td class="p-3">Gestión de calendarios general</td>
-                </tr>
-                <tr class="border-t">
-                  <td class="p-3">Modelo de datos</td>
-                  <td class="p-3">Pacientes, profesionales, agendas, cupos</td>
-                  <td class="p-3">Calendarios, eventos, asistentes</td>
-                </tr>
-                <tr class="border-t">
-                  <td class="p-3">Autenticación</td>
-                  <td class="p-3">OAuth2 / API Keys por integrador</td>
-                  <td class="p-3">OAuth2 (Google Identity)</td>
-                </tr>
-                <tr class="border-t">
-                  <td class="p-3">Eventos</td>
-                  <td class="p-3">Creación/confirmación/cancelación de cita; recordatorios</td>
-                  <td class="p-3">CRUD de eventos; notificaciones <em>push</em></td>
-                </tr>
-                <tr class="border-t">
-                  <td class="p-3">Perecibilidad</td>
-                  <td class="p-3">Cupos caducan al pasar la hora</td>
-                  <td class="p-3">Tokens y <em>webhooks</em> expiran</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+    <section id="comparativa" class="rounded-2xl shadow p-8 bg-violet-50 border-l-8 border-violet-500 mb-8">
+      <h2 class="text-2xl font-bold text-violet-700 mb-2">Comparativa real</h2>
+      <p class="text-lg">Google Calendar API vs Bookr Salud</p>
+      <table class="min-w-full text-xs border border-violet-200 rounded-xl overflow-hidden mt-2">
+        <thead class="bg-violet-100">
+          <tr>
+            <th class="text-left p-2">Criterio</th>
+            <th class="text-left p-2">Bookr Salud</th>
+            <th class="text-left p-2">Google Calendar API</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t">
+            <td class="p-2">Dominio</td>
+            <td class="p-2">Reservas de citas médicas</td>
+            <td class="p-2">Gestión de calendarios</td>
+          </tr>
+          <tr class="border-t">
+            <td class="p-2">Modelo de datos</td>
+            <td class="p-2">Pacientes, agendas, cupos</td>
+            <td class="p-2">Calendarios, eventos</td>
+          </tr>
+          <tr class="border-t">
+            <td class="p-2">Autenticación</td>
+            <td class="p-2">OAuth2 / API Keys</td>
+            <td class="p-2">OAuth2 (Google)</td>
+          </tr>
+          <tr class="border-t">
+            <td class="p-2">Eventos</td>
+            <td class="p-2">Reserva, cancelación, recordatorio</td>
+            <td class="p-2">CRUD eventos, notificaciones</td>
+          </tr>
+          <tr class="border-t">
+            <td class="p-2">Perecibilidad</td>
+            <td class="p-2">Cupos caducan</td>
+            <td class="p-2">Tokens y webhooks expiran</td>
+          </tr>
+        </tbody>
+      </table>
+      <span class="block mt-2 text-xs text-violet-700">Duración: 2 min</span>
     </section>
-
-    <!-- Entregable & Publicación -->
-    <section id="entregables" class="bg-white rounded-2xl shadow p-8 mt-8">
-      <h2 class="text-2xl font-bold">Entregable final</h2>
-      <ul class="list-disc pl-5 mt-3 space-y-2">
-        <li><span class="font-semibold">Definición y objetivo</span> del servicio propuesto (sección A).</li>
-        <li><span class="font-semibold">Análisis de características</span> del servicio (sección B).</li>
-        <li><span class="font-semibold">Diagrama técnico</span> de alto nivel (sección C).</li>
-        <li><span class="font-semibold">Comparativa</span> con un servicio real (sección D).</li>
-        <li><span class="font-semibold">Enlace de acceso compartido</span> (GitHub Pages):
-          <a id="gh-link" class="text-blue-700 underline" href="#" onclick="alert('Reemplaza este enlace cuando publiques en GitHub Pages')">https://TU_USUARIO.github.io/bookr-salud</a>
-          <br><span class="text-xs text-slate-500">Consulta instrucciones en <code>README.md</code> para publicar y actualizar el enlace.</span>
-        </li>
-      </ul>
-      <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
-        <h3 class="font-semibold">Cómo publicarlo en GitHub Pages (rápido)</h3>
-        <ol class="list-decimal pl-5 mt-2 space-y-1 text-sm">
-          <li>Crea un repositorio llamado <code>bookr-salud</code> y sube este archivo como <code>index.html</code>.</li>
-          <li>En <em>Settings → Pages</em>, selecciona la rama <code>main</code> y carpeta <code>/root</code>. Guarda.</li>
-          <li>Espera a que se genere el sitio y copia la URL (reemplaza el enlace superior).</li>
-        </ol>
-      </div>
+    <section id="cierre" class="rounded-2xl shadow p-8 bg-slate-100 border-l-8 border-slate-500 mb-8">
+      <h2 class="text-2xl font-bold text-slate-700 mb-2">Cierre</h2>
+      <p class="text-lg">Roadmap y métricas de éxito: integración con historias clínicas, mejora de SLOs, expansión a nuevos mercados.</p>
+      <span class="block mt-2 text-xs text-slate-700">Duración: 1 min</span>
     </section>
-
-    <!-- Apéndice: API Sketch -->
-    <section id="api" class="bg-white rounded-2xl shadow p-8 mt-8">
-      <h2 class="text-2xl font-bold">Apéndice: Borrador de API</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="space-y-2">
-          <p class="text-sm text-slate-500">Ejemplos de endpoints (REST):</p>
-<pre class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs overflow-x-auto">GET   /v1/availability?doctorId=...&date=YYYY-MM-DD
-POST  /v1/reservations { patientId, slotId, modality }
-PATCH /v1/reservations/{id} { status: "cancelled" }
-GET   /v1/reservations/{id}
-POST  /v1/webhooks { url, events: ["reservation.created"] }
-</pre>
-        </div>
-        <div class="space-y-2">
-          <p class="text-sm text-slate-500">Eventos (cola / webhooks):</p>
-<pre class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs overflow-x-auto">reservation.created { id, patientId, datetime, channel }
-reservation.reminder { id, sendAt }
-reservation.cancelled { id, reason }
-</pre>
-          <p class="text-sm text-slate-500">SLOs sugeridos: latencia P95 &lt; 300 ms (lectura), &lt; 600 ms (reserva); disponibilidad mensual ≥ 99.9%.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Guion de presentación -->
-    <section id="pitch" class="bg-white rounded-2xl shadow p-8 mt-8">
-      <h2 class="text-2xl font-bold">Guion para exposición (15 min)</h2>
-      <ol class="list-decimal pl-5 mt-2 space-y-2">
-        <li><span class="font-semibold">Contexto & problema</span> (2 min): tiempos de espera, reprogramaciones.</li>
-        <li><span class="font-semibold">Solución: Bookr Salud</span> (3 min): propuesta de valor y usuarios.</li>
-        <li><span class="font-semibold">Características del servicio</span> (4 min): cinco conceptos con ejemplos.</li>
-        <li><span class="font-semibold">Arquitectura & diagrama</span> (3 min): flujo y componentes.</li>
-        <li><span class="font-semibold">Comparativa real</span> (2 min): Google Calendar API vs Bookr Salud.</li>
-        <li><span class="font-semibold">Cierre</span> (1 min): roadmap y métricas de éxito.</li>
+    <footer class="max-w-5xl mx-auto text-center text-xs text-slate-500 mt-10">
+      <p>© 2025 Equipo Bookr Salud — Documento educativo para actividad de "Concepto y Diseño de un Servicio Digital".</p>
+    </footer>
       </ol>
     </section>
 
