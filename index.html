@@ -105,12 +105,17 @@
         <li><span class="font-semibold">Infraestructura:</span> base de datos, caché, cola de mensajes, REST/GraphQL, SMS/Email/Push.</li>
       </ul>
       <div class="mt-4 p-2 bg-white border border-rose-200 rounded-xl overflow-x-auto">
-        <!-- Control de zoom -->
-        <div class="flex items-center gap-2 mb-2 text-sm text-slate-600">
+        <!-- Controles -->
+        <div class="flex items-center gap-3 mb-2 text-sm text-slate-600">
           <label for="zoomRange">Zoom gráfico:</label>
           <input id="zoomRange" type="range" min="0.5" max="2" step="0.1" value="1" class="w-40">
           <span id="zoomValue">100%</span>
+          <!-- Botón de pantalla completa -->
+          <button id="fullscreenBtn" class="px-3 py-1 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition">
+            Pantalla completa
+          </button>
         </div>
+
         <!-- Contenedor de la gráfica -->
         <div id="mermaidContainer" style="transform: scale(1); transform-origin: top left;">
           <pre class="mermaid">
@@ -216,11 +221,79 @@ flowchart LR
   const zoomRange = document.getElementById("zoomRange");
   const zoomValue = document.getElementById("zoomValue");
   const mermaidContainer = document.getElementById("mermaidContainer");
+  const fullscreenBtn = document.getElementById("fullscreenBtn");
 
+  // Control de zoom
   zoomRange.addEventListener("input", () => {
     const scale = zoomRange.value;
     mermaidContainer.style.transform = `scale(${scale})`;
     zoomValue.textContent = `${Math.round(scale * 100)}%`;
+  });
+
+  // Pantalla completa
+  fullscreenBtn.addEventListener("click", () => {
+    if (!document.fullscreenElement) {
+      // Guardar estilos previos
+      mermaidContainer._prevStyles = {
+        background: mermaidContainer.style.background,
+        display: mermaidContainer.style.display,
+        justifyContent: mermaidContainer.style.justifyContent,
+        alignItems: mermaidContainer.style.alignItems,
+        height: mermaidContainer.style.height,
+        padding: mermaidContainer.style.padding
+      };
+      mermaidContainer.style.background = "#fff";
+      mermaidContainer.style.display = "flex";
+      mermaidContainer.style.justifyContent = "center";
+      mermaidContainer.style.alignItems = "center";
+      mermaidContainer.style.height = "100vh";
+      mermaidContainer.style.padding = "0";
+      // Expandir el gráfico mermaid
+      const mermaidPre = mermaidContainer.querySelector("pre.mermaid");
+      if (mermaidPre) {
+        mermaidPre._prevStyles = {
+          width: mermaidPre.style.width,
+          height: mermaidPre.style.height,
+          margin: mermaidPre.style.margin,
+          display: mermaidPre.style.display
+        };
+        mermaidPre.style.width = "100vw";
+        mermaidPre.style.height = "100vh";
+        mermaidPre.style.margin = "auto";
+        mermaidPre.style.display = "flex";
+        mermaidPre.style.alignItems = "center";
+        mermaidPre.style.justifyContent = "center";
+      }
+      mermaidContainer.requestFullscreen().catch(err => {
+        alert(`Error al entrar en pantalla completa: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  });
+
+  // Restaurar estilos al salir de pantalla completa
+  document.addEventListener("fullscreenchange", () => {
+    if (!document.fullscreenElement && mermaidContainer._prevStyles) {
+      mermaidContainer.style.background = mermaidContainer._prevStyles.background || "";
+      mermaidContainer.style.display = mermaidContainer._prevStyles.display || "";
+      mermaidContainer.style.justifyContent = mermaidContainer._prevStyles.justifyContent || "";
+      mermaidContainer.style.alignItems = mermaidContainer._prevStyles.alignItems || "";
+      mermaidContainer.style.height = mermaidContainer._prevStyles.height || "";
+      mermaidContainer.style.padding = mermaidContainer._prevStyles.padding || "";
+      // Restaurar el gráfico mermaid
+      const mermaidPre = mermaidContainer.querySelector("pre.mermaid");
+      if (mermaidPre && mermaidPre._prevStyles) {
+  mermaidPre.style.width = mermaidPre._prevStyles.width || "";
+  mermaidPre.style.height = mermaidPre._prevStyles.height || "";
+  mermaidPre.style.margin = mermaidPre._prevStyles.margin || "";
+  mermaidPre.style.display = mermaidPre._prevStyles.display || "";
+  mermaidPre.style.alignItems = "";
+  mermaidPre.style.justifyContent = "";
+  mermaidPre._prevStyles = null;
+      }
+      mermaidContainer._prevStyles = null;
+    }
   });
 </script>
 </body>
