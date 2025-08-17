@@ -4,296 +4,133 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Concepto y Diseño de un Servicio Digital – Bookr Salud</title>
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Mermaid for diagramas -->
+  <!-- Mermaid -->
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({ startOnLoad: true, theme: 'default' });
   </script>
-  <meta name="description" content="Documento para exponer el concepto y diseño de un servicio digital: Bookr Salud (API de reservas para servicios de salud). Incluye definición, características, diagrama y comparativa con un servicio real." />
 </head>
 <body class="bg-slate-50 text-slate-800" style="background:rgb(215,227,240);">
+
+  <!-- HEADER -->
   <header class="bg-white shadow-sm sticky top-0 z-20">
-    <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row md:items-center md:justify-between">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
       <div>
-        <h1 class="text-3xl md:text-4xl font-bold text-blue-900">Bookr Salud</h1>
-        <p class="mt-2 text-lg text-slate-700">Presentación de Servicio Digital para Reservas Médicas</p>
-        <p class="mt-1 text-sm text-slate-500">Solución digital para optimizar la gestión de citas médicas y mejorar la experiencia de pacientes y prestadores.</p>
+        <h1 class="text-2xl md:text-4xl font-bold text-blue-900">Bookr Salud</h1>
+        <p class="hidden sm:block text-sm text-slate-500">Solución digital para reservas médicas</p>
       </div>
-      <nav class="mt-6 md:mt-0 flex flex-wrap gap-2 justify-center">
-      <a href="#contexto" class="px-4 py-2 rounded-full bg-blue-700 hover:bg-blue-800 text-white font-semibold">Contexto</a>
-      <a href="#solucion" class="px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold">Solución</a>
-      <a href="#caracteristicas" class="px-4 py-2 rounded-full bg-amber-500 hover:bg-amber-600 text-white font-semibold">Características</a>
-      <a href="#arquitectura" class="px-4 py-2 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-semibold">Arquitectura</a>
-      <a href="#comparativa" class="px-4 py-2 rounded-full bg-violet-600 hover:bg-violet-700 text-white font-semibold">Comparativa</a>
-      <a href="#cierre" class="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-900 text-white font-semibold">Cierre</a>
+
+      <!-- Botón menú móvil -->
+      <button id="menuBtn" class="md:hidden p-2 text-slate-700 hover:text-blue-700 focus:outline-none">
+        ☰
+      </button>
+
+      <!-- Menú de navegación -->
+      <nav id="menuNav" class="hidden md:flex flex-wrap gap-2">
+        <a href="#contexto" class="px-4 py-2 rounded-full bg-blue-700 hover:bg-blue-800 text-white text-sm font-semibold">Contexto</a>
+        <a href="#solucion" class="px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold">Solución</a>
+        <a href="#caracteristicas" class="px-4 py-2 rounded-full bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold">Características</a>
+        <a href="#arquitectura" class="px-4 py-2 rounded-full bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold">Arquitectura</a>
+        <a href="#comparativa" class="px-4 py-2 rounded-full bg-violet-600 hover:bg-violet-700 text-white text-sm font-semibold">Comparativa</a>
+        <a href="#cierre" class="px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-900 text-white text-sm font-semibold">Cierre</a>
       </nav>
     </div>
-  </header>
-  <header class="max-w-5xl mx-auto px-6 py-10">
-    <div class="bg-white rounded-2xl shadow p-8">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Concepto y Diseño de un Servicio Digital</h1>
-      <p class="mt-2 text-lg">Caso: <span class="font-semibold">Bookr Salud</span> — API de reservas para servicios de salud</p>
-      <p class="mt-1 text-sm text-slate-500">Actividad: Definir, modelar y comparar un servicio digital.</p>
-      <div class="mt-4 flex flex-wrap gap-2 text-sm">
-        <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full">Intangibilidad</span>
-        <span class="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full">Inseparabilidad</span>
-        <span class="px-3 py-1 bg-amber-50 text-amber-700 rounded-full">Variabilidad</span>
-        <span class="px-3 py-1 bg-rose-50 text-rose-700 rounded-full">Perecibilidad</span>
-        <span class="px-3 py-1 bg-violet-50 text-violet-700 rounded-full">Ausencia de propiedad</span>
-      </div>
+
+    <!-- Menú móvil desplegable -->
+    <div id="menuMobile" class="hidden flex-col bg-slate-100 px-4 pb-4 md:hidden">
+      <a href="#contexto" class="block py-2 text-blue-700 font-semibold">Contexto</a>
+      <a href="#solucion" class="block py-2 text-emerald-700 font-semibold">Solución</a>
+      <a href="#caracteristicas" class="block py-2 text-amber-700 font-semibold">Características</a>
+      <a href="#arquitectura" class="block py-2 text-rose-700 font-semibold">Arquitectura</a>
+      <a href="#comparativa" class="block py-2 text-violet-700 font-semibold">Comparativa</a>
+      <a href="#cierre" class="block py-2 text-slate-700 font-semibold">Cierre</a>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto px-6 pb-16">
+  <!-- CONTENIDO -->
+  <main class="max-w-5xl mx-auto px-4 py-6 space-y-6">
 
-    <!-- A. Definición del servicio propuesto -->
-    <section id="definicion" class="bg-white rounded-2xl shadow p-8">
-      <h2 class="text-2xl font-bold">Definición del servicio propuesto</h2>
-      <div class="mt-4 grid gap-6">
-        <div class="space-y-3">
-          <h3 class="font-semibold">Nombre del servicio</h3>
-          <p><span class="font-medium">Bookr Salud</span> — Plataforma y API para reservar citas médicas (presenciales o virtuales) con control de disponibilidad en tiempo real.</p>
-          <h3 class="font-semibold">Problema que resuelve</h3>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Altos tiempos de espera y reprogramaciones por falta de visibilidad del cupo real.</li>
-            <li>Canales de atención fragmentados (teléfono, WhatsApp, ventanilla) que duplican registros.</li>
-            <li>Dificultad para integrar agendas con historias clínicas y facturación.</li>
-          </ul>
-        </div>
-        <div class="space-y-3">
-          <h3 class="font-semibold">Usuarios objetivo</h3>
-          <ul class="list-disc pl-5 space-y-1">
-            <li><span class="font-medium">Pacientes</span>: buscan y reservan cita por especialidad, ubicación o modalidad.</li>
-            <li><span class="font-medium">Prestadores</span> (clínicas/consultorios): gestionan horarios, cupos y políticas de cancelación.</li>
-            <li><span class="font-medium">Integradores</span> (apps de terceros): consumen la API para embebeder reservas.</li>
-          </ul>
-  <!-- Encabezado eliminado para rediseño -->
-  <main class="max-w-5xl mx-auto px-6 pb-16" style="padding: 10px;">
-    <section id="contexto" class="rounded-2xl shadow p-8 bg-blue-50 border-l-8 border-blue-500 mb-8">
-  <h2 class="text-2xl font-bold text-blue-700 mb-2">Contexto & problema</h2>
-  <p class="text-lg">Los sistemas de salud actual aún no han innovado y siguen presentando grandes problemas como largos tiempos de espera, confusión por agendas poco claras y múltiples canales de comunicación lo cual genera pérdida de tiempo, frustración y, en ocasiones, reprogramaciones innecesarias.
-</p>
+    <!-- CONTEXTO -->
+    <section id="contexto" class="rounded-2xl shadow p-6 bg-blue-50 border-l-8 border-blue-500">
+      <h2 class="text-xl md:text-2xl font-bold text-blue-700 mb-2">Contexto & problema</h2>
+      <p class="text-base md:text-lg">Los sistemas de salud aún presentan largos tiempos de espera, agendas poco claras y múltiples canales de comunicación, lo que genera pérdida de tiempo y frustración.</p>
     </section>
-    <section id="solucion" class="rounded-2xl shadow p-8 bg-emerald-50 border-l-8 border-emerald-500 mb-8">
-  <h2 class="text-2xl font-bold text-emerald-700 mb-2">Solución: Bookr Salud</h2>
-  <p class="text-lg">Plataforma y API para reservas confiables en tiempo real, con recordatorios inteligentes y fácil integración.</p>
-  <ul class="list-disc pl-5 mt-2 text-base">
-    <li>Pacientes: buscan y reservan cita.</li>
-    <li>Prestadores: gestionan horarios y cupos.</li>
-    <li>Integradores: apps de terceros usan la API.</li>
-  </ul>
-    </section>
-    <section id="caracteristicas" class="rounded-2xl shadow p-8 bg-amber-50 border-l-8 border-amber-500 mb-8">
-  <h2 class="text-2xl font-bold text-amber-700 mb-2">Características del servicio</h2>
-  <ul class="list-disc pl-5 text-base">
-    <li>Intangibilidad: El servicio no es un producto físico de forma que se accede y utiliza de forma digital a través de la plataforma o la API.</li>
-    <li>Inseparabilidad: En el momento en que el usuario interactúa con la plataforma la reserva y la confirmación se generan en tiempo real lo cual indica que la producción y consumo suceden al mismo tiempo.</li>
-    <li>Variabilidad: La experiencia del usuario puede variar en la velocidad de la red, el dispositivo usado o la carga del sistema.</li>
-    <li>Perecibilidad: Los cupos disponibles para citas no se pueden almacenar para su uso futuro si no se reservan. Una hora libre que no se agenda se pierde.</li>
-    <li>Ausencia de propiedad: El usuario no adquiere la plataforma ni sus funciones, solo obtiene el derecho de usarla para realizar reservas y gestiones según las condiciones del servicio.</li>
-  </ul>
-    </section>
-    <section id="arquitectura" class="rounded-2xl shadow p-8 bg-rose-50 border-l-8 border-rose-500 mb-8">
-  <h2 class="text-2xl font-bold text-rose-700 mb-2">Arquitectura & diagrama</h2>
-  <p class="text-lg">Flujo: búsqueda de disponibilidad, reserva y notificaciones.</p>
-      <ul class="list-disc pl-5 text-base mb-2">
-        <li><span class="font-semibold">Cliente:</span> Web/App paciente, apps de terceros.</li>
-        <li><span class="font-semibold">Borde:</span> API Gateway, Auth/OAuth2.</li>
-        <li><span class="font-semibold">Backend:</span> servicios de reservas, inventario de cupos, notificaciones, panel admin.</li>
-        <li><span class="font-semibold">Infraestructura:</span> base de datos, caché, cola de mensajes, REST/GraphQL, SMS/Email/Push.</li>
+
+    <!-- SOLUCION -->
+    <section id="solucion" class="rounded-2xl shadow p-6 bg-emerald-50 border-l-8 border-emerald-500">
+      <h2 class="text-xl md:text-2xl font-bold text-emerald-700 mb-2">Solución: Bookr Salud</h2>
+      <p class="text-base md:text-lg">Plataforma y API para reservas confiables en tiempo real, con recordatorios inteligentes y fácil integración.</p>
+      <ul class="list-disc pl-5 mt-2 text-sm md:text-base">
+        <li>Pacientes: buscan y reservan cita.</li>
+        <li>Prestadores: gestionan horarios y cupos.</li>
+        <li>Integradores: apps de terceros usan la API.</li>
       </ul>
-      <div class="mt-4 p-2 bg-white border border-rose-200 rounded-xl overflow-x-auto">
-        <!-- Controles -->
-        <div class="flex items-center gap-3 mb-2 text-sm text-slate-600">
-          <label for="zoomRange">Zoom gráfico:</label>
-          <input id="zoomRange" type="range" min="0.5" max="2" step="0.1" value="1" class="w-40">
-          <span id="zoomValue">100%</span>
-          <!-- Botón de pantalla completa -->
-          <button id="fullscreenBtn" class="px-3 py-1 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition">
-            Pantalla completa
-          </button>
-        </div>
+    </section>
 
-        <!-- Contenedor de la gráfica -->
-        <div id="mermaidContainer" style="transform: scale(1); transform-origin: top left;">
+    <!-- ARQUITECTURA -->
+    <section id="arquitectura" class="rounded-2xl shadow p-6 bg-rose-50 border-l-8 border-rose-500">
+      <h2 class="text-xl md:text-2xl font-bold text-rose-700 mb-2">Arquitectura & diagrama</h2>
+      <div class="overflow-x-auto">
+        <div id="mermaidContainer" class="p-2 bg-white border border-rose-200 rounded-lg min-w-[320px]">
           <pre class="mermaid">
 flowchart LR
-  subgraph Cliente
-    UI[Web/App Paciente]
-    Ext[Apps de terceros]
-  end
-  subgraph Borde
-    GW[API Gateway]
-    Auth[Auth / OAuth2]
-  end
-  subgraph Backend
-    RSV[Servicio de Reservas]
-    INV[Servicio de Inventario de Cupos]
-    NTFY[Servicio de Notificaciones]
-    ADM[Panel Admin]
-  end
-  subgraph Datos
-    DB[(Base de Datos)]
-    CACHE[(Cache)]
-    Q[[Cola de Mensajes]]
-  end
-  UI -->|REST/GraphQL| GW
-  Ext -->|API Key| GW
-  GW --> Auth
-  Auth --> GW
-  GW --> RSV
-  RSV --> INV
-  RSV --> DB
+  UI[Paciente Web/App] --> GW[API Gateway]
+  GW --> Auth[OAuth2]
+  GW --> RSV[Servicio Reservas]
+  RSV --> INV[Inventario Cupos]
+  RSV --> DB[(Base Datos)]
   INV --> DB
-  RSV --> CACHE
-  RSV --> Q
-  Q --> NTFY
-  NTFY -->|SMS/Email/Push| UI
-  ADM --> GW
-  ADM --> DB
+  RSV --> Q[[Cola Mensajes]]
+  Q --> NTFY[Notificaciones]
           </pre>
         </div>
       </div>
     </section>
-    <section id="comparativa" class="rounded-2xl shadow p-8 bg-violet-50 border-l-8 border-violet-500 mb-8">
-      <h2 class="text-2xl font-bold text-violet-700 mb-2">Comparativa real</h2>
-      <p class="text-lg">Google Calendar API vs Bookr Salud</p>
-      <table class="min-w-full text-xs border border-violet-200 rounded-xl overflow-hidden mt-2">
-        <thead class="bg-violet-100">
-          <tr>
-            <th class="text-left p-2">Criterio</th>
-            <th class="text-left p-2">Bookr Salud</th>
-            <th class="text-left p-2">Google Calendar API</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-t">
-            <td class="p-2">Dominio</td>
-            <td class="p-2">Reservas de citas médicas</td>
-            <td class="p-2">Gestión de calendarios</td>
-          </tr>
-          <tr class="border-t">
-            <td class="p-2">Modelo de datos</td>
-            <td class="p-2">Pacientes, agendas, cupos</td>
-            <td class="p-2">Calendarios, eventos</td>
-          </tr>
-          <tr class="border-t">
-            <td class="p-2">Autenticación</td>
-            <td class="p-2">OAuth2 / API Keys</td>
-            <td class="p-2">OAuth2 (Google)</td>
-          </tr>
-          <tr class="border-t">
-            <td class="p-2">Eventos</td>
-            <td class="p-2">Reserva, cancelación, recordatorio</td>
-            <td class="p-2">CRUD eventos, notificaciones</td>
-          </tr>
-          <tr class="border-t">
-            <td class="p-2">Perecibilidad</td>
-            <td class="p-2">Cupos caducan</td>
-            <td class="p-2">Tokens y webhooks expiran</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    <section id="cierre" class="rounded-2xl shadow p-8 bg-slate-100 border-l-8 border-slate-500 mb-8">
-  <h2 class="text-2xl font-bold text-slate-700 mb-2">Cierre</h2>
-  <p class="text-lg">Con Bookr Salud buscamos una solución para la gestión de citas médicas con disponibilidad en tiempo real, conectando con los pacientes y ofreciendo una gran experiencia en un sistema eficiente y seguro.</p>
-  <b><p class="text-lg">Metricas de exito</p></b>
-  <ul class="list-disc pl-5 mt-2 text-base">
-    <li>Reducción en los tiempos para agendar una cita.</li>
-    <li>Disminuir la causa de reprogramación de citas generados por el actual sistema de salud..</li>
-    <li>Un incremento en el número de citas reservadas a través de la plataforma y la API.</li>
-    <li>Un nivel alto de satisfacción en los usuarios o pacientes.</li>
-    <li>Un nivel de disponibilidad del sistema cercano a las 24 horas del día.</li>
-  </ul>
-    </section>
+
+    <!-- COMPARATIVA -->
+    <section id="comparativa" class="rounded-2xl shadow p-6 bg-violet-50 border-l-8 border-violet-500">
+      <h2 class="text-xl md:text-2xl font-bold text-violet-700 mb-2">Comparativa real</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs md:text-sm border border-violet-200 rounded-lg">
+          <thead class="bg-violet-100">
+            <tr>
+              <th class="p-2 text-left">Criterio</th>
+              <th class="p-2 text-left">Bookr Salud</th>
+              <th class="p-2 text-left">Google Calendar API</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t"><td class="p-2">Dominio</td><td class="p-2">Reservas médicas</td><td class="p-2">Calendarios</td></tr>
+            <tr class="border-t"><td class="p-2">Modelo</td><td class="p-2">Pacientes, agendas</td><td class="p-2">Eventos</td></tr>
+            <tr class="border-t"><td class="p-2">Autenticación</td><td class="p-2">OAuth2/API Key</td><td class="p-2">OAuth2</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
-    <footer class="max-w-5xl mx-auto text-center text-xs text-slate-500 mt-10">
-      <p>© 2025 Equipo Bookr Salud — Documento educativo para actividad de "Concepto y Diseño de un Servicio Digital".</p>
-    </footer>
+    <!-- CIERRE -->
+    <section id="cierre" class="rounded-2xl shadow p-6 bg-slate-100 border-l-8 border-slate-500">
+      <h2 class="text-xl md:text-2xl font-bold text-slate-700 mb-2">Cierre</h2>
+      <p class="text-base md:text-lg">Bookr Salud busca optimizar la gestión de citas con disponibilidad en tiempo real, mejorando la experiencia de pacientes y prestadores.</p>
+    </section>
 
   </main>
-<script>
-  const zoomRange = document.getElementById("zoomRange");
-  const zoomValue = document.getElementById("zoomValue");
-  const mermaidContainer = document.getElementById("mermaidContainer");
-  const fullscreenBtn = document.getElementById("fullscreenBtn");
 
-  // Control de zoom
-  zoomRange.addEventListener("input", () => {
-    const scale = zoomRange.value;
-    mermaidContainer.style.transform = `scale(${scale})`;
-    zoomValue.textContent = `${Math.round(scale * 100)}%`;
-  });
+  <!-- FOOTER -->
+  <footer class="text-center text-xs text-slate-500 py-6">
+    © 2025 Equipo Bookr Salud — Documento educativo
+  </footer>
 
-  // Pantalla completa
-  fullscreenBtn.addEventListener("click", () => {
-    if (!document.fullscreenElement) {
-      // Guardar estilos previos
-      mermaidContainer._prevStyles = {
-        background: mermaidContainer.style.background,
-        display: mermaidContainer.style.display,
-        justifyContent: mermaidContainer.style.justifyContent,
-        alignItems: mermaidContainer.style.alignItems,
-        height: mermaidContainer.style.height,
-        padding: mermaidContainer.style.padding
-      };
-      mermaidContainer.style.background = "#fff";
-      mermaidContainer.style.display = "flex";
-      mermaidContainer.style.justifyContent = "center";
-      mermaidContainer.style.alignItems = "center";
-      mermaidContainer.style.height = "100vh";
-      mermaidContainer.style.padding = "0";
-      // Expandir el gráfico mermaid
-      const mermaidPre = mermaidContainer.querySelector("pre.mermaid");
-      if (mermaidPre) {
-        mermaidPre._prevStyles = {
-          width: mermaidPre.style.width,
-          height: mermaidPre.style.height,
-          margin: mermaidPre.style.margin,
-          display: mermaidPre.style.display
-        };
-        mermaidPre.style.width = "100vw";
-        mermaidPre.style.height = "100vh";
-        mermaidPre.style.margin = "auto";
-        mermaidPre.style.display = "flex";
-        mermaidPre.style.alignItems = "center";
-        mermaidPre.style.justifyContent = "center";
-      }
-      mermaidContainer.requestFullscreen().catch(err => {
-        alert(`Error al entrar en pantalla completa: ${err.message}`);
-      });
-    } else {
-      document.exitFullscreen();
-    }
-  });
-
-  // Restaurar estilos al salir de pantalla completa
-  document.addEventListener("fullscreenchange", () => {
-    if (!document.fullscreenElement && mermaidContainer._prevStyles) {
-      mermaidContainer.style.background = mermaidContainer._prevStyles.background || "";
-      mermaidContainer.style.display = mermaidContainer._prevStyles.display || "";
-      mermaidContainer.style.justifyContent = mermaidContainer._prevStyles.justifyContent || "";
-      mermaidContainer.style.alignItems = mermaidContainer._prevStyles.alignItems || "";
-      mermaidContainer.style.height = mermaidContainer._prevStyles.height || "";
-      mermaidContainer.style.padding = mermaidContainer._prevStyles.padding || "";
-      // Restaurar el gráfico mermaid
-      const mermaidPre = mermaidContainer.querySelector("pre.mermaid");
-      if (mermaidPre && mermaidPre._prevStyles) {
-  mermaidPre.style.width = mermaidPre._prevStyles.width || "";
-  mermaidPre.style.height = mermaidPre._prevStyles.height || "";
-  mermaidPre.style.margin = mermaidPre._prevStyles.margin || "";
-  mermaidPre.style.display = mermaidPre._prevStyles.display || "";
-  mermaidPre.style.alignItems = "";
-  mermaidPre.style.justifyContent = "";
-  mermaidPre._prevStyles = null;
-      }
-      mermaidContainer._prevStyles = null;
-    }
-  });
-</script>
+  <!-- Script menú móvil -->
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const nav = document.getElementById("menuMobile");
+    btn.addEventListener("click", () => {
+      nav.classList.toggle("hidden");
+      nav.classList.toggle("flex");
+    });
+  </script>
 </body>
 </html>
